@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
         </form>
     `);
 });
-
+const BACKEND_URL = process.env.BACKEND_URL || "http://backend:5000";
 app.post('/submit', async (req, res) => {
     try {
         const { name, email } = req.body;
-        const response = await axios.post('http://backend:5000/api/data', {
+        const response = await axios.post(`${BACKEND_URL}/api/data`, {
             name,
             email
         });

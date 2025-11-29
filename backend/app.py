@@ -1,11 +1,14 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
+import os
+
+MONGO_URL = os.getenv("MONGO_URL")
 
 app = Flask(__name__)
 CORS(app)
-
-client = MongoClient("mongodb+srv://root:root@mongo.vb4ujxi.mongodb.net/?retryWrites=true&w=majority&appName=MONGO")
+client = MongoClient(MONGO_URL)
+#client = MongoClient("mongodb+srv://root:root@mongo.vb4ujxi.mongodb.net/?retryWrites=true&w=majority&appName=MONGO")
 db = client["FirstDB"]
 collection = db["record"]
 
