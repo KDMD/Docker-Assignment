@@ -30,5 +30,5 @@ app.post('/submit', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Frontend running on http://localhost:${port}`);
+    console.log(`Frontend running on http://0.0.0.0:${port}`);
 });
